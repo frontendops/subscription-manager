@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Home msg="Hello Vue in CodeSandbox!"/>
+    <Home/>
   </div>
 </template>
 

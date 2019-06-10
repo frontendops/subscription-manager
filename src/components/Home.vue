@@ -1,9 +1,15 @@
 <template>
-  <div class="home">hello vue</div>
+  <div class="home">
+    <SubscriptionList/>
+  </div>
 </template>
 
 <script>
+import SubscriptionList from "./SubscriptionList";
 export default {
+  components: {
+    SubscriptionList
+  },
   name: "Home",
   props: {
     msg: String
@@ -16,5 +22,6 @@ export default {
 .home {
   height: 100vh;
   width: 100vw;
+  background-color: #eeeeee;
 }
 </style>
