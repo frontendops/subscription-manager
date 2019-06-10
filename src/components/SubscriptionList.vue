@@ -1,8 +1,6 @@
 <template>
   <div>
-    <Datepicker/>
-    <Datepicker/>
-    <Datepicker :inline="true" calendar-class="cl-date"/>
+    <Datepicker calendar-class="cl-date" :disabled-dates="dates"/>
   </div>
 </template>
 
@@ -12,10 +10,22 @@ export default {
   components: {
     Datepicker
   },
-  name: "SubscriptionList"
+  name: "SubscriptionList",
+  data() {
+    return {
+      dates: {
+        days: [6, 0],
+        to: new Date(2019, 5, 4),
+        from: new Date(2019, 5, 26)
+      }
+    };
+  }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="css">
+.cl-date {
+  background: #fff;
+}
 </style>
 
