@@ -17,11 +17,11 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .home {
   height: 100vh;
   width: 100vw;
   background-color: #eeeeee;
+  padding: 16px;
 }
 </style>

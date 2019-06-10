@@ -1,6 +1,8 @@
 <template>
   <div>
     <Datepicker/>
+    <Datepicker/>
+    <Datepicker :inline="true" calendar-class="cl-date"/>
   </div>
 </template>
 
