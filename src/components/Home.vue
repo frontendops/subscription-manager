@@ -1,14 +1,19 @@
 <template>
-  <div class="home">
-    <SubscriptionList/>
+  <div>
+    <div class="home">
+      <SubscriptionList/>
+    </div>
+    <AddService/>
   </div>
 </template>
 
 <script>
 import SubscriptionList from "./SubscriptionList";
+import AddService from "./AddService";
 export default {
   components: {
-    SubscriptionList
+    SubscriptionList,
+    AddService
   },
   name: "Home",
   props: {
@@ -19,9 +24,6 @@ export default {
 
 <style scoped>
 .home {
-  height: 100vh;
-  width: 100vw;
   background-color: #eeeeee;
-  padding: 16px;
 }
 </style>

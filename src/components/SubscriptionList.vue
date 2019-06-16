@@ -2,12 +2,13 @@
   <!-- make this a scoped slot -->
   <div>
     <h1>{{ title }}</h1>
-    <div role="list">
+    <div role="list" class="subscription-list">
       <Subscription
         v-for="(item, index) in subscriptions"
         :key="index"
         :title="item.name"
         :price="item.price"
+        :color="item.color"
       />
     </div>
   </div>
@@ -22,23 +23,27 @@ export default {
   name: "SubscriptionList",
   data() {
     return {
-      title: "your subscriptions",
+      title: "Your subscriptions",
       subscriptions: [
         {
           name: "Netflix",
-          price: 10
+          price: 10,
+          color: "#e31929"
         },
         {
           name: "Spotify",
-          price: 10
+          price: 10,
+          color: "#028858"
         },
         {
           name: "Medium",
-          price: 10
+          price: 5,
+          color: "#024c8e"
         },
         {
-          name: "Netflix",
-          price: 10
+          name: "Headspace",
+          price: 12,
+          color: "#f9af2f"
         }
       ]
     };
@@ -47,8 +52,10 @@ export default {
 </script>
 
 <style lang="css">
-.cl-date {
-  background: #fff;
+.subscription-list {
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 0 8px;
 }
 </style>
 
