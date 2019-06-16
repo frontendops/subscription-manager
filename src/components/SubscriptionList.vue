@@ -1,23 +1,46 @@
 <template>
+  <!-- make this a scoped slot -->
   <div>
-    <Datepicker calendar-class="cl-date" :disabled-dates="dates"/>
+    <h1>{{ title }}</h1>
+    <div role="list">
+      <Subscription
+        v-for="(item, index) in subscriptions"
+        :key="index"
+        :title="item.name"
+        :price="item.price"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import Datepicker from "vuejs-datepicker";
+import Subscription from "./Subscription";
 export default {
   components: {
-    Datepicker
+    Subscription
   },
   name: "SubscriptionList",
   data() {
     return {
-      dates: {
-        days: [6, 0],
-        to: new Date(2019, 5, 4),
-        from: new Date(2019, 5, 26)
-      }
+      title: "your subscriptions",
+      subscriptions: [
+        {
+          name: "Netflix",
+          price: 10
+        },
+        {
+          name: "Spotify",
+          price: 10
+        },
+        {
+          name: "Medium",
+          price: 10
+        },
+        {
+          name: "Netflix",
+          price: 10
+        }
+      ]
     };
   }
 };
