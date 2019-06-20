@@ -2,6 +2,11 @@
   <!-- make this a scoped slot -->
   <div>
     <h1>{{ title }}</h1>
+    <div class="total-price">
+      <span>Your Total</span>
+      <span class="lines"></span>
+      <span class="total-price__total">${{total}}</span>
+    </div>
     <div role="list" class="subscription-list">
       <Subscription
         v-for="(item, index) in subscriptions"
@@ -24,6 +29,7 @@ export default {
   data() {
     return {
       title: "Your subscriptions",
+      total: null,
       subscriptions: [
         {
           name: "Netflix",
@@ -47,6 +53,20 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    getTotal() {
+      let prices = [];
+      let sum;
+      this.subscriptions.forEach(subscription =>
+        prices.push(subscription.price)
+      );
+      sum = prices.reduce((a, b) => a + b);
+      this.total = sum;
+    }
+  },
+  mounted() {
+    this.getTotal();
   }
 };
 </script>
@@ -54,8 +74,27 @@ export default {
 <style lang="css">
 .subscription-list {
   margin: 0 auto;
+  margin-top: 16px;
   max-width: 900px;
   padding: 0 8px;
+}
+
+.total-price {
+  display: flex;
+  font-size: 2rem;
+  max-width: 900px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+.total-price__total {
+  font-weight: bold;
+}
+
+.lines {
+  border-bottom: 2px dotted black;
+  flex-grow: 1;
 }
 </style>
 
